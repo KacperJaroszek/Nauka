@@ -1,16 +1,27 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Clock clock = new Clock();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        clock.setCurrentTime();
+        System.out.println("Aktualny czas: "+clock);
 
-        }
+        clock.setTime(18, 30, 30);
+        System.out.println("Nowy czas: " + clock);
+
+//        clock.setTime(25,0,0);
+
+        DigitalClock clock24 = new DigitalClock(DigitalClock.ClockMode.H24);
+        clock24.setTime(9, 5, 7);
+        System.out.println("Tryb 24h: " + clock24);
+
+        DigitalClock clock12 = new DigitalClock(DigitalClock.ClockMode.H12);
+        clock12.setTime(9, 5, 7);
+        System.out.println("Tryb 12h: " + clock12);
+
+        clock12.setTime(15, 45, 0);
+        System.out.println("Tryb 12h (PM): " + clock12);
+
+        clock12.setTime(0, 15, 0);
+        System.out.println("Tryb 12h (AM, północ): " + clock12);
     }
 }
