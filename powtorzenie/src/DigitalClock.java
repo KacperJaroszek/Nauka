@@ -11,6 +11,7 @@ public class DigitalClock extends Clock{
         this.mode = mode;
     }
 
+
     @Override
     public String toString(){
         if(mode == ClockMode.H24){

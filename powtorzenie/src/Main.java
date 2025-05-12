@@ -10,6 +10,7 @@ public class Main {
 
 //        clock.setTime(25,0,0);
 
+
         DigitalClock clock24 = new DigitalClock(DigitalClock.ClockMode.H24);
         clock24.setTime(9, 5, 7);
         System.out.println("Tryb 24h: " + clock24);

@@ -5,6 +5,7 @@ public class Clock {
     protected int minute;
     protected int second;
 
+
     // Metoda ustawia czas na aktualny czas systemowy
     public void setCurrentTime() {
         LocalTime now = LocalTime.now();
