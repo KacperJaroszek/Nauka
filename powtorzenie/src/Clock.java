@@ -4,7 +4,12 @@ public class Clock {
     protected int hour;
     protected int minute;
     protected int second;
+    private City city;
 
+    public Clock(City city) {
+        this.city = city;
+        setCurrentTime();
+    }
 
     // Metoda ustawia czas na aktualny czas systemowy
     public void setCurrentTime() {
@@ -31,9 +36,23 @@ public class Clock {
         this.second = second;
     }
 
+    public void setCity(City newCity){
+        int oldOffSet = (city!=null) ? city.getSummerTimezone() : 0;
+        int newOffSet = newCity.getSummerTimezone();
+        int offSetDiff = newOffSet - oldOffSet;
+
+        this.hour = (this.hour + offSetDiff + 24) % 24;
+
+        this.city=newCity;
+    }
+
     // Metoda zwraca czas w formacie hh:mm:ss
     @Override
     public String toString() {
         return String.format("%02d:%02d:%02d", hour, minute, second);
+    }
+
+    public City getCity() {
+        return city;
     }
 }

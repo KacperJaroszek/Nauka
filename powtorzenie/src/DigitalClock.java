@@ -6,11 +6,10 @@ public class DigitalClock extends Clock{
 
     private ClockMode mode;
 
-    public DigitalClock(ClockMode mode) {
-        super();
+    public DigitalClock(City city, ClockMode mode) {
+        super(city);
         this.mode = mode;
     }
-
 
     @Override
     public String toString(){
@@ -24,5 +23,13 @@ public class DigitalClock extends Clock{
             if(hour12 ==0) hour12 = 12;
             return String.format("%d:%02d:%02d %s", hour12, minute, second, period);
         }
+    }
+
+    public void setMode(ClockMode mode) {
+        this.mode = mode;
+    }
+
+    public ClockMode getMode() {
+        return mode;
     }
 }
